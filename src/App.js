@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import './App.css';
-import Update from './components/Update'
-import Display from './components/Display'
+import Update from './components/Update';
+import Display from './components/Display';
 
-const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?zip='
-const appId = ',us&appid=709847967f5e54b97308c1b2cae4dee5'
+const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?zip=';
+const appId = ',us&appid=709847967f5e54b97308c1b2cae4dee5';
 
 class App extends Component {
   constructor(props) {
@@ -15,42 +15,42 @@ class App extends Component {
       updatedZip: '',
       weatherData: ''
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleUpdate = this.handleUpdate.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   async componentDidMount() {
-    const zip = this.state.firstZip
-    this.getData(zip)
+    const zip = this.state.firstZip;
+    this.getData(zip);
   }
 
   async getData(zip) {
-    const response = await axios.get(baseUrl + zip + appId)
+    const response = await axios.get(baseUrl + zip + appId);
     this.setState({
       weatherData: response.data
-    })
+    });
   }
 
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
-    })
+    });
   }
 
   handleUpdate(event) {
-    event.preventDefault()
-    const zip = this.state.updatedZip
-    this.getData(zip)
+    event.preventDefault();
+    const zip = this.state.updatedZip;
+    this.getData(zip);
   }
 
-
   render() {
-    const {weatherData} = this.state
+    const { weatherData } = this.state;
+
     return (
       <div className="App">
-        {!weatherData ? '' : <Display weatherData={this.state.weatherData} />}
-        <hr></hr>
-        <Update handleChange={this.handleChange} handleUpdate={this.handleUpdate}/>
+        {!weatherData ? '' : <Display weatherData={this.state.weatherData}/>}
+        <hr/>
+        <Update handleChange={this.handleChange} handleUpdate={this.handleUpdate} value={this.state.updatedZip}/>
       </div>
     );
   }

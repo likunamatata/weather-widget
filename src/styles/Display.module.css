@@ -1,0 +1,52 @@
+.display{
+  margin: 56px 0px 0px 0px;
+}
+
+.displaySummary{
+  margin: 0px 0px 60px 0px;
+}
+
+.summaryHeader{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  height: 55px;
+}
+
+.summaryDescription{
+  font-size: 18.18px;
+  margin: 10px 0px 0px 0px;
+}
+
+.cityName{
+  font-size: 39.93px;
+  margin: 0px;
+}
+
+.displayTemp{
+  font-size: 55.1px;
+  margin: 0px;
+}
+
+.displayTemp > p{
+  margin: 0px;
+}
+
+.minMax{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 22.68px;
+}
+
+.minMax > p{
+  margin: 23px 23px;
+}
+
+img{
+  margin: 10px 0px 0px 10px;
+  width: 38px;
+  height: 29px;
+  object-fit: cover;
+}

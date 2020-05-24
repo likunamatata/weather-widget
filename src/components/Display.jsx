@@ -1,26 +1,31 @@
-import React from 'react'
+import React from 'react';
+import styles from '../styles/Display.module.css';
+import { kelvinToCelsius, capitalize } from '../services/display-helpers';
 
 export default function Display(props) {
-  console.log('display', props)
-  const { weatherData } = props
+  const { weatherData } = props;
+  const { main } = weatherData;
+  const { description, icon } = weatherData.weather[0];
+
   return (
-    <div className='display'>
-      <div className='display-summary'>
-        <div className='summary-header'>
-          <p>{weatherData.name}</p>
-          <img src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} />
+    <div className={styles.display}>
+
+      <div className={styles.displaySummary}>
+        <div className={styles.summaryHeader}>
+          <p className={styles.cityName}>{weatherData.name}</p>
+          <img src={`http://openweathermap.org/img/w/${icon}.png`} />
         </div>
-          <p>{weatherData.weather[0].description}</p>
+        <p className={styles.summaryDescription}>{capitalize(description)}</p>
       </div>
 
-      <div className='display-temperature'>
-        <p>kelvin {weatherData.main.temp}</p>
-        <div className='min-max'>
-          <p>kelvin {weatherData.main.temp_min}</p>
-          <p>kelvin {weatherData.main.temp_max}</p>
+      <div className={styles.displayTemp}>
+        <p>{kelvinToCelsius(main.temp)}</p>
+        <div className={styles.minMax}>
+          <p>{kelvinToCelsius(main.temp_min)}</p>
+          <p>{kelvinToCelsius(main.temp_max)}</p>ß
         </div>
       </div>
 
     </div>
-  )
+  );
 }
