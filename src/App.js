@@ -45,9 +45,11 @@ class App extends Component {
 
 
   render() {
+    const {weatherData} = this.state
     return (
       <div className="App">
-        <Display weatherData={this.state.weatherData}/>
+        {!weatherData ? '' : <Display weatherData={this.state.weatherData} />}
+        <hr></hr>
         <Update handleChange={this.handleChange} handleUpdate={this.handleUpdate}/>
       </div>
     );
