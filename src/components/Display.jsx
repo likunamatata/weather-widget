@@ -22,7 +22,7 @@ export default function Display(props) {
         <p>{kelvinToCelsius(main.temp)}</p>
         <div className={styles.minMax}>
           <p>{kelvinToCelsius(main.temp_min)}</p>
-          <p>{kelvinToCelsius(main.temp_max)}</p>ß
+          <p>{kelvinToCelsius(main.temp_max)}</p>
         </div>
       </div>
 
