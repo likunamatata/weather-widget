@@ -4,4 +4,5 @@ To run this app, please follow the steps below:
 1. clone
 2. cd weather-widget
 3. npm i
-4. npm start
+4. npm install axios
+5. npm start
